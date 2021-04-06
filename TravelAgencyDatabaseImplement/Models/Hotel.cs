@@ -17,7 +17,7 @@ namespace TravelAgencyDatabaseImplement.Models
         public string Address { get; set; }
         public string Contactnumber { get; set; }
 
-        public virtual Country Countrie { get; set; }
+        public virtual Country Country { get; set; }
         public virtual ICollection<Tour> Tour { get; set; }
     }
 }

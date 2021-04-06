@@ -19,7 +19,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
         public virtual DbSet<Sale> Sale { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Client>(entity =>
@@ -100,7 +99,7 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
 
                 entity.Property(e => e.Rating).HasColumnName("rating");
 
-                entity.HasOne(d => d.Countrie)
+                entity.HasOne(d => d.Country)
                     .WithMany(p => p.Hotel)
                     .HasForeignKey(d => d.Countrieid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
