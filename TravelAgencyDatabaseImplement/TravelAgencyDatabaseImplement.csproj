@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Implements\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TravelAgencyBusinessLogic\TravelAgencyBusinessLogic.csproj" />
   </ItemGroup>
 
