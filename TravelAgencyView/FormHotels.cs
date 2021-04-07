@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TravelAgencyView
 {
-    public partial class Form1 : Form
+    public partial class FormHotels : Form
     {
-        public Form1()
+        public FormHotels()
         {
             InitializeComponent();
         }

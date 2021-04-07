@@ -147,14 +147,83 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormClient.Designer.cs">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClients.Designer.cs">
+      <DependentUpon>FormClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCountries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCountries.Designer.cs">
+      <DependentUpon>FormCountries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCountry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCountry.Designer.cs">
+      <DependentUpon>FormCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHotel.Designer.cs">
+      <DependentUpon>FormHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHotels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHotels.Designer.cs">
+      <DependentUpon>FormHotels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSale.Designer.cs">
+      <DependentUpon>FormSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTour.Designer.cs">
+      <DependentUpon>FormTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTours.Designer.cs">
+      <DependentUpon>FormTours.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormClient.resx">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClients.resx">
+      <DependentUpon>FormClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCountries.resx">
+      <DependentUpon>FormCountries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCountry.resx">
+      <DependentUpon>FormCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
