@@ -12,5 +12,7 @@ namespace TravelAgencyBusinessLogic.BindingModels
         public int NumberOfPeople { get; set; }
         public int HotelId { get; set; }
         public DateTime PublicationDate { get; set; }
+        public decimal? CostFrom { get; set; }
+        public decimal? CostTo { get; set; }
     }
 }
