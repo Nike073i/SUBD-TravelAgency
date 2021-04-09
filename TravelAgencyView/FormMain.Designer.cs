@@ -39,6 +39,7 @@ namespace TravelAgencyView
             this.buttonUpd = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
+            this.buttonSalesForPeriod = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             this.SuspendLayout();
@@ -135,11 +136,22 @@ namespace TravelAgencyView
             this.dataGridViewSales.Size = new System.Drawing.Size(538, 263);
             this.dataGridViewSales.TabIndex = 9;
             // 
+            // buttonSalesForPeriod
+            // 
+            this.buttonSalesForPeriod.Location = new System.Drawing.Point(573, 213);
+            this.buttonSalesForPeriod.Name = "buttonSalesForPeriod";
+            this.buttonSalesForPeriod.Size = new System.Drawing.Size(116, 27);
+            this.buttonSalesForPeriod.TabIndex = 14;
+            this.buttonSalesForPeriod.Text = "Продажи за период";
+            this.buttonSalesForPeriod.UseVisualStyleBackColor = true;
+            this.buttonSalesForPeriod.Click += new System.EventHandler(this.ButtonSalesForPeriod_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 302);
+            this.Controls.Add(this.buttonSalesForPeriod);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
@@ -170,6 +182,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.Button buttonUpd;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridView dataGridViewSales;
+        private System.Windows.Forms.Button buttonSalesForPeriod;
     }
 }
 

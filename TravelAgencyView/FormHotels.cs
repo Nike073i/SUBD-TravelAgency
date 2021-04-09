@@ -86,5 +86,32 @@ namespace TravelAgencyView
         {
             LoadData();
         }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxRatingFrom.Text))
+            {
+                MessageBox.Show("Заполните нижний рейтинг", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxRatingTo.Text))
+            {
+                MessageBox.Show("Заполните верхний рейтинг", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                var list = logic.Read(new HotelBindingModel
+                {
+                    RatingFrom = Convert.ToInt32(textBoxRatingFrom.Text),
+                    RatingTo = Convert.ToInt32(textBoxRatingTo.Text)
+                });
+                dataGridViewHotels.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

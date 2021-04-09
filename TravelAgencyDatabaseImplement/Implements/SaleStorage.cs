@@ -41,7 +41,9 @@ namespace TravelAgencyDatabaseImplement.Implements
                 return context.Sale
                 .Include(rec => rec.Client)
                 .Include(rec => rec.Tour)
-                .Where(rec => rec.Clientid.Equals(model.ClientId))
+                .Where(rec => rec.Clientid.Equals(model.ClientId)
+                || (!model.DateFrom.HasValue && !model.DateTo.HasValue && rec.Dateofsale.Date == model.DateOfSale.Date)
+                || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.Dateofsale.Date >= model.DateFrom.Value.Date && rec.Dateofsale.Date <= model.DateTo.Value.Date))
                 .Select(rec => new SaleViewModel
                 {
                     Id = rec.Id,

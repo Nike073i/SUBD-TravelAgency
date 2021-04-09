@@ -40,7 +40,8 @@ namespace TravelAgencyDatabaseImplement.Implements
             {
                 return context.Hotel
                 .Include(rec => rec.Country)
-                .Where(rec => rec.Countrieid.Equals(model.CountryId))
+                .Where(rec => (!model.RatingFrom.HasValue && !model.RatingTo.HasValue && rec.Rating.HasValue && rec.Rating == model.Rating)
+                || (model.RatingFrom.HasValue && model.RatingTo.HasValue && rec.Rating.HasValue && rec.Rating >= model.RatingFrom.Value && rec.Rating <= model.RatingTo.Value))
                 .Select(rec => new HotelViewModel
                 {
                     Id = rec.Id,

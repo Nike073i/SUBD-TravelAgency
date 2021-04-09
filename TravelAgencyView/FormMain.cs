@@ -89,6 +89,12 @@ namespace TravelAgencyView
             LoadData();
         }
 
+        private void ButtonSalesForPeriod_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormSalesForPeriod>();
+            form.ShowDialog();
+        }
+
         private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormClients>();

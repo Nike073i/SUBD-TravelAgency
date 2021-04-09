@@ -86,5 +86,37 @@ namespace TravelAgencyView
         {
             LoadData();
         }
+        private void ButtonToursVerboseMode_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormToursVerboseMode>();
+            form.ShowDialog();
+        }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxCostFrom.Text))
+            {
+                MessageBox.Show("Заполните нижнюю цену", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxCostTo.Text))
+            {
+                MessageBox.Show("Заполните верхнюю цену", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                var list = logic.Read(new TourBindingModel
+                {
+                    CostFrom = Convert.ToDecimal(textBoxCostFrom.Text),
+                    CostTo = Convert.ToDecimal(textBoxCostTo.Text)
+                });
+                dataGridViewTours.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

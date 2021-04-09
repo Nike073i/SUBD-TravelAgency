@@ -195,6 +195,12 @@
     <Compile Include="FormSale.Designer.cs">
       <DependentUpon>FormSale.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesForPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesForPeriod.Designer.cs">
+      <DependentUpon>FormSalesForPeriod.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTour.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,12 @@
     </Compile>
     <Compile Include="FormTours.Designer.cs">
       <DependentUpon>FormTours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormToursVerboseMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToursVerboseMode.Designer.cs">
+      <DependentUpon>FormToursVerboseMode.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,11 +245,17 @@
     <EmbeddedResource Include="FormSale.resx">
       <DependentUpon>FormSale.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesForPeriod.resx">
+      <DependentUpon>FormSalesForPeriod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTour.resx">
       <DependentUpon>FormTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTours.resx">
       <DependentUpon>FormTours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToursVerboseMode.resx">
+      <DependentUpon>FormToursVerboseMode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

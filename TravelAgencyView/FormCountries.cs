@@ -85,5 +85,25 @@ namespace TravelAgencyView
         {
             LoadData();
         }
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxName.Text))
+            {
+                MessageBox.Show("Введите строку поиска", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                var list = logic.Read(new CountryBindingModel
+                {
+                    Name = textBoxName.Text
+                });
+                dataGridViewCountries.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

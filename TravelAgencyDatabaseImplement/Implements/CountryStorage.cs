@@ -33,7 +33,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 return context.Country
-                .Where(rec => rec.Language.Equals(model.Language))
+                .Where(rec => rec.Name.Contains(model.Name))
                .Select(rec => new CountryViewModel
                {
                    Id = rec.Id,
