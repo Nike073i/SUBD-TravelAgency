@@ -29,6 +29,7 @@ namespace TravelAgencyView
                 if (list != null)
                 {
                     dataGridViewCountries.DataSource = list;
+                    dataGridViewCountries.AutoResizeColumns();
                     dataGridViewCountries.Columns[0].Visible = false;
                     dataGridViewCountries.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }

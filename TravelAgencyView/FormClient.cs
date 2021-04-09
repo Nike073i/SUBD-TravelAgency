@@ -29,9 +29,7 @@ namespace TravelAgencyView
                     var view = logic.Read(new ClientBindingModel { Id = id })?[0];
                     if (view != null)
                     {
-                        textBoxFirstName.Text = view.FirstName;
-                        textBoxSecondName.Text = view.SecondName;
-                        textBoxMiddleName.Text = view.MiddleName;
+                        textBoxFIO.Text = view.FIO;
                         textBoxContactNumber.Text = view.ContactNumber;
                     }
                 }
@@ -43,14 +41,9 @@ namespace TravelAgencyView
         }
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxFirstName.Text))
+            if (string.IsNullOrEmpty(textBoxFIO.Text))
             {
-                MessageBox.Show("Заполните имя", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxSecondName.Text))
-            {
-                MessageBox.Show("Заполните фамилию", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните ФИО", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(textBoxContactNumber.Text))
@@ -63,9 +56,7 @@ namespace TravelAgencyView
                 logic.CreateOrUpdate(new ClientBindingModel
                 {
                     Id = id,
-                    FirstName = textBoxFirstName.Text,
-                    SecondName = textBoxSecondName.Text,
-                    MiddleName = (textBoxMiddleName.Text.Length > 0) ? textBoxMiddleName.Text : null,
+                    FIO = textBoxFIO.Text,
                     ContactNumber = textBoxContactNumber.Text
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

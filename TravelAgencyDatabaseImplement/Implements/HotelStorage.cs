@@ -26,7 +26,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     CountryId = rec.Countrieid,
                     CountryName = rec.Country.Name,
                     Address = rec.Address,
-                    ContactNumber = rec.Address
+                    ContactNumber = rec.Contactnumber
                 }).ToList();
             }
         }
@@ -49,7 +49,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     CountryId = rec.Countrieid,
                     CountryName = rec.Country.Name,
                     Address = rec.Address,
-                    ContactNumber = rec.Address
+                    ContactNumber = rec.Contactnumber
                 }).ToList();
             }
         }
@@ -73,7 +73,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     CountryId = hotel.Countrieid,
                     CountryName = hotel.Country.Name,
                     Address = hotel.Address,
-                    ContactNumber = hotel.Address
+                    ContactNumber = hotel.Contactnumber
                 } : null;
             }
         }

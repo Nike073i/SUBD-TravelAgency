@@ -29,8 +29,9 @@ namespace TravelAgencyView
                 if (list != null)
                 {
                     dataGridViewClients.DataSource = list;
+                    dataGridViewClients.AutoResizeColumns();
                     dataGridViewClients.Columns[0].Visible = false;
-                    dataGridViewClients.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridViewClients.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyView", "TravelA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyDatabaseImplement", "TravelAgencyDatabaseImplement\TravelAgencyDatabaseImplement.csproj", "{28FC8F0A-2EB0-4CA1-B6F5-1F829F3DB739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyBusinessLogic", "TravelAgencyBusinessLogic\TravelAgencyBusinessLogic.csproj", "{7E7A742E-97C9-4C49-B098-C620152FF7AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBusinessLogic", "TravelAgencyBusinessLogic\TravelAgencyBusinessLogic.csproj", "{7E7A742E-97C9-4C49-B098-C620152FF7AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,16 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.DatabaseContext
 {
     public partial class TravelAgencyDatabase : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public TravelAgencyDatabase()
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=TravelAgencyDB;Username=Skuld;Password=26041986");
-            }
+        }
+
+        public TravelAgencyDatabase(DbContextOptions<TravelAgencyDatabase> options)
+            : base(options)
+        {
         }
 
         public virtual DbSet<Client> Client { get; set; }
@@ -18,6 +21,14 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
         public virtual DbSet<Hotel> Hotel { get; set; }
         public virtual DbSet<Sale> Sale { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql("Host=localhost;Database=TravelAgencyDB;Username=Skuld;Password=26041986");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,18 +49,9 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
                     .HasColumnName("contactnumber")
                     .HasMaxLength(12);
 
-                entity.Property(e => e.Firstname)
+                entity.Property(e => e.Fio)
                     .IsRequired()
-                    .HasColumnName("firstname")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Middlename)
-                    .HasColumnName("middlename")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Secondname)
-                    .IsRequired()
-                    .HasColumnName("secondname")
+                    .HasColumnName("fio")
                     .HasMaxLength(50);
             });
 
@@ -102,7 +104,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
                 entity.HasOne(d => d.Country)
                     .WithMany(p => p.Hotel)
                     .HasForeignKey(d => d.Countrieid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("hotel_countryfk");
             });
 
@@ -169,7 +170,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
                 entity.HasOne(d => d.Hotel)
                     .WithMany(p => p.Tour)
                     .HasForeignKey(d => d.Hotelid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("tour_hotelfk");
             });
 

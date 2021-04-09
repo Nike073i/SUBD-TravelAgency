@@ -88,6 +88,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyDatabase())
             {
+                model.PublicationDate = DateTime.Now;
                 context.Tour.Add(CreateModel(model, new Tour()));
                 context.SaveChanges();
             }

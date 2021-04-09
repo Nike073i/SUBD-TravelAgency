@@ -29,69 +29,33 @@ namespace TravelAgencyView
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxMiddleName = new System.Windows.Forms.TextBox();
-            this.textBoxSecondName = new System.Windows.Forms.TextBox();
-            this.textBoxFirstName = new System.Windows.Forms.TextBox();
-            this.labelFName = new System.Windows.Forms.Label();
-            this.labelSName = new System.Windows.Forms.Label();
-            this.labelMName = new System.Windows.Forms.Label();
+            this.textBoxFIO = new System.Windows.Forms.TextBox();
+            this.labelFIO = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.textBoxContactNumber = new System.Windows.Forms.TextBox();
             this.labelCNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBoxMiddleName
+            // textBoxFIO
             // 
-            this.textBoxMiddleName.Location = new System.Drawing.Point(78, 60);
-            this.textBoxMiddleName.Name = "textBoxMiddleName";
-            this.textBoxMiddleName.Size = new System.Drawing.Size(157, 20);
-            this.textBoxMiddleName.TabIndex = 17;
+            this.textBoxFIO.Location = new System.Drawing.Point(78, 24);
+            this.textBoxFIO.Name = "textBoxFIO";
+            this.textBoxFIO.Size = new System.Drawing.Size(244, 20);
+            this.textBoxFIO.TabIndex = 15;
             // 
-            // textBoxSecondName
+            // labelFIO
             // 
-            this.textBoxSecondName.Location = new System.Drawing.Point(314, 24);
-            this.textBoxSecondName.Name = "textBoxSecondName";
-            this.textBoxSecondName.Size = new System.Drawing.Size(212, 20);
-            this.textBoxSecondName.TabIndex = 16;
-            // 
-            // textBoxFirstName
-            // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(78, 24);
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(157, 20);
-            this.textBoxFirstName.TabIndex = 15;
-            // 
-            // labelFName
-            // 
-            this.labelFName.AutoSize = true;
-            this.labelFName.Location = new System.Drawing.Point(12, 27);
-            this.labelFName.Name = "labelFName";
-            this.labelFName.Size = new System.Drawing.Size(35, 13);
-            this.labelFName.TabIndex = 14;
-            this.labelFName.Text = "Имя: ";
-            // 
-            // labelSName
-            // 
-            this.labelSName.AutoSize = true;
-            this.labelSName.Location = new System.Drawing.Point(246, 27);
-            this.labelSName.Name = "labelSName";
-            this.labelSName.Size = new System.Drawing.Size(62, 13);
-            this.labelSName.TabIndex = 13;
-            this.labelSName.Text = "Фамилия: ";
-            // 
-            // labelMName
-            // 
-            this.labelMName.AutoSize = true;
-            this.labelMName.Location = new System.Drawing.Point(12, 63);
-            this.labelMName.Name = "labelMName";
-            this.labelMName.Size = new System.Drawing.Size(60, 13);
-            this.labelMName.TabIndex = 12;
-            this.labelMName.Text = "Отчество: ";
+            this.labelFIO.AutoSize = true;
+            this.labelFIO.Location = new System.Drawing.Point(12, 27);
+            this.labelFIO.Name = "labelFIO";
+            this.labelFIO.Size = new System.Drawing.Size(37, 13);
+            this.labelFIO.TabIndex = 14;
+            this.labelFIO.Text = "ФИО:";
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(314, 111);
+            this.buttonCancel.Location = new System.Drawing.Point(247, 109);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 11;
@@ -101,7 +65,7 @@ namespace TravelAgencyView
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(160, 111);
+            this.buttonSave.Location = new System.Drawing.Point(140, 109);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 10;
@@ -111,15 +75,15 @@ namespace TravelAgencyView
             // 
             // textBoxContactNumber
             // 
-            this.textBoxContactNumber.Location = new System.Drawing.Point(314, 63);
+            this.textBoxContactNumber.Location = new System.Drawing.Point(78, 61);
             this.textBoxContactNumber.Name = "textBoxContactNumber";
-            this.textBoxContactNumber.Size = new System.Drawing.Size(212, 20);
+            this.textBoxContactNumber.Size = new System.Drawing.Size(244, 20);
             this.textBoxContactNumber.TabIndex = 19;
             // 
             // labelCNumber
             // 
             this.labelCNumber.AutoSize = true;
-            this.labelCNumber.Location = new System.Drawing.Point(248, 66);
+            this.labelCNumber.Location = new System.Drawing.Point(12, 64);
             this.labelCNumber.Name = "labelCNumber";
             this.labelCNumber.Size = new System.Drawing.Size(58, 13);
             this.labelCNumber.TabIndex = 18;
@@ -129,15 +93,11 @@ namespace TravelAgencyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 144);
+            this.ClientSize = new System.Drawing.Size(336, 144);
             this.Controls.Add(this.textBoxContactNumber);
             this.Controls.Add(this.labelCNumber);
-            this.Controls.Add(this.textBoxMiddleName);
-            this.Controls.Add(this.textBoxSecondName);
-            this.Controls.Add(this.textBoxFirstName);
-            this.Controls.Add(this.labelFName);
-            this.Controls.Add(this.labelSName);
-            this.Controls.Add(this.labelMName);
+            this.Controls.Add(this.textBoxFIO);
+            this.Controls.Add(this.labelFIO);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Name = "FormClient";
@@ -149,13 +109,8 @@ namespace TravelAgencyView
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxMiddleName;
-        private System.Windows.Forms.TextBox textBoxSecondName;
-        private System.Windows.Forms.TextBox textBoxFirstName;
-        private System.Windows.Forms.Label labelFName;
-        private System.Windows.Forms.Label labelSName;
-        private System.Windows.Forms.Label labelMName;
+        private System.Windows.Forms.TextBox textBoxFIO;
+        private System.Windows.Forms.Label labelFIO;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxContactNumber;

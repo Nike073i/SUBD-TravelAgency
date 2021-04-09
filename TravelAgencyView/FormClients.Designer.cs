@@ -45,12 +45,12 @@ namespace TravelAgencyView
             this.dataGridViewClients.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewClients.Size = new System.Drawing.Size(538, 263);
+            this.dataGridViewClients.Size = new System.Drawing.Size(426, 263);
             this.dataGridViewClients.TabIndex = 0;
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(573, 154);
+            this.buttonRef.Location = new System.Drawing.Point(460, 154);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(116, 27);
             this.buttonRef.TabIndex = 8;
@@ -60,7 +60,7 @@ namespace TravelAgencyView
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(573, 106);
+            this.buttonDel.Location = new System.Drawing.Point(460, 106);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(116, 27);
             this.buttonDel.TabIndex = 7;
@@ -70,7 +70,7 @@ namespace TravelAgencyView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(573, 60);
+            this.buttonUpd.Location = new System.Drawing.Point(460, 60);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(116, 27);
             this.buttonUpd.TabIndex = 6;
@@ -80,7 +80,7 @@ namespace TravelAgencyView
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(573, 15);
+            this.buttonAdd.Location = new System.Drawing.Point(460, 15);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(116, 27);
             this.buttonAdd.TabIndex = 5;
@@ -92,7 +92,7 @@ namespace TravelAgencyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 285);
+            this.ClientSize = new System.Drawing.Size(594, 285);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);

@@ -19,9 +19,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 .Select(rec => new ClientViewModel
                 {
                     Id = rec.Id,
-                    FirstName = rec.Firstname,
-                    SecondName = rec.Secondname,
-                    MiddleName = rec.Middlename,
+                    FIO = rec.Fio,
                     ContactNumber = rec.Contactnumber
                 }).ToList();
             }
@@ -35,13 +33,11 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 return context.Client
-                .Where(rec => rec.Secondname.Contains(model.SecondName))
+                .Where(rec => rec.Fio.Contains(model.FIO))
                .Select(rec => new ClientViewModel
                {
                    Id = rec.Id,
-                   FirstName = rec.Firstname,
-                   SecondName = rec.Secondname,
-                   MiddleName = rec.Middlename,
+                   FIO = rec.Fio,
                    ContactNumber = rec.Contactnumber
                }).ToList();
             }
@@ -60,9 +56,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                 new ClientViewModel
                 {
                     Id = client.Id,
-                    FirstName = client.Firstname,
-                    SecondName = client.Secondname,
-                    MiddleName = client.Middlename,
+                    FIO = client.Fio,
                     ContactNumber = client.Contactnumber
                 } : null;
             }
@@ -106,9 +100,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         }
         private Client CreateModel(ClientBindingModel model, Client client)
         {
-            client.Firstname = model.FirstName;
-            client.Secondname = model.SecondName;
-            client.Middlename = model.MiddleName;
+            client.Fio = model.FIO;
             client.Contactnumber = model.ContactNumber;
             return client;
         }

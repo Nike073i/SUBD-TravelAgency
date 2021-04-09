@@ -25,7 +25,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     TourId = rec.Tourid,
                     TourName = rec.Tour.Name,
                     ClientId = rec.Clientid,
-                    ClientFIO = String.Concat(rec.Client.Secondname, " ", rec.Client.Firstname, " ", rec.Client.Middlename),
+                    ClientFIO = rec.Client.Fio,
                     DateOfSale = rec.Dateofsale
                 }).ToList();
             }
@@ -48,7 +48,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     TourId = rec.Tourid,
                     TourName = rec.Tour.Name,
                     ClientId = rec.Clientid,
-                    ClientFIO = String.Concat(rec.Client.Secondname, " ", rec.Client.Firstname, " ", rec.Client.Middlename),
+                    ClientFIO = rec.Client.Fio,
                     DateOfSale = rec.Dateofsale
                 }).ToList();
             }
@@ -72,7 +72,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     TourId = sale.Tourid,
                     TourName = sale.Tour.Name,
                     ClientId = sale.Clientid,
-                    ClientFIO = String.Concat(sale.Client.Secondname, " ", sale.Client.Firstname, " ", sale.Client.Middlename),
+                    ClientFIO = sale.Client.Fio,
                     DateOfSale = sale.Dateofsale
                 } : null;
             }
