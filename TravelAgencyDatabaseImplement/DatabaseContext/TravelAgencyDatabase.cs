@@ -1,12 +1,14 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
+using System.Text;
 using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.DatabaseContext
 {
     public partial class TravelAgencyDatabase : DbContext
     {
+        const string CONFIG_FILE_ADDRESS = "../../../config.txt";
         public TravelAgencyDatabase()
         {
         }
@@ -26,7 +28,7 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=TravelAgencyDB;Username=Skuld;Password=26041986");
+                optionsBuilder.UseNpgsql(GetConnectionString());
             }
         }
 
@@ -187,5 +189,43 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        private string GetConnectionString()
+        {
+            if (File.Exists(CONFIG_FILE_ADDRESS))
+            {
+                if (!CheckConfigFile(CONFIG_FILE_ADDRESS))
+                {
+                    throw new Exception("Неверный формат файла конфигурации");
+                }
+                StringBuilder str = new StringBuilder();
+                using (StreamReader sr = new StreamReader(CONFIG_FILE_ADDRESS, Encoding.GetEncoding(1251)))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        str.Append(line);
+                    }
+                }
+                Console.WriteLine(str.ToString());
+                return str.ToString();
+            }
+            else
+            {
+                throw new Exception("Файл конфигурации не найден");
+            }
+        }
+        private bool CheckConfigFile(string fileAddress)
+        {
+            int count = 0;
+            using (StreamReader sr = new StreamReader(fileAddress))
+            {
+                while (sr.ReadLine() != null)
+                {
+                    count++;
+                }
+            }
+            return count == 5 ? true : false;
+        }
     }
 }

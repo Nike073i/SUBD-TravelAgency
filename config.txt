@@ -1,0 +1,5 @@
+Host=localhost;
+Port=5432;
+Database=TravelAgencyDB;
+Username=Skuld;
+Password=26041986;
