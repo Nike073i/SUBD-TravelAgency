@@ -10,11 +10,11 @@ namespace TravelAgencyView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly SaleLogic logic;
-        public FormMain(SaleLogic logic)
+        private readonly SaleLogic logicS;
+        public FormMain(SaleLogic logicS)
         {
             InitializeComponent();
-            this.logic = logic;
+            this.logicS = logicS;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace TravelAgencyView
         {
             try
             {
-                var sales = logic.Read(null);
+                var sales = logicS.Read(null);
                 if (sales != null)
                 {
                     dataGridViewSales.DataSource = sales;
@@ -74,7 +74,7 @@ namespace TravelAgencyView
                     int id = Convert.ToInt32(dataGridViewSales.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        logic.Delete(new SaleBindingModel { Id = id });
+                        logicS.Delete(new SaleBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {

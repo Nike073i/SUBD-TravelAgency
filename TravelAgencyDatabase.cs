@@ -1,12 +1,14 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
+using System.Text;
 using TravelAgencyDatabaseImplement.Models;
 
 namespace TravelAgencyDatabaseImplement.DatabaseContext
 {
     public partial class TravelAgencyDatabase : DbContext
     {
+        const string CONFIG_FILE_ADDRESS = "../../../config.txt";
         public TravelAgencyDatabase()
         {
         }
@@ -26,7 +28,7 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=TravelAgencyDB;Username=Skuld;Password=26041986");
+                optionsBuilder.UseNpgsql(GetConnectionString());
             }
         }
 
@@ -39,9 +41,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
                 entity.HasIndex(e => e.Contactnumber)
                     .HasName("client_contactnumber_key")
                     .IsUnique();
-
-                entity.HasIndex(e => e.Fio)
-                    .HasName("ind_client_fio");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -62,9 +61,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
             {
                 entity.ToTable("country");
 
-                entity.HasIndex(e => e.Name)
-                    .HasName("ind_country_name");
-
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .HasDefaultValueSql("nextval('countrie_seq'::regclass)");
@@ -83,12 +79,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
             modelBuilder.Entity<Hotel>(entity =>
             {
                 entity.ToTable("hotel");
-
-                entity.HasIndex(e => e.Name)
-                    .HasName("ind_hotel_name");
-
-                entity.HasIndex(e => e.Rating)
-                    .HasName("ind_hotel_rating");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -123,9 +113,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
             {
                 entity.ToTable("sale");
 
-                entity.HasIndex(e => e.Dateofsale)
-                    .HasName("ind_sale_dateofsale");
-
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .HasDefaultValueSql("nextval('sale_seq'::regclass)");
@@ -154,12 +141,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
             modelBuilder.Entity<Tour>(entity =>
             {
                 entity.ToTable("tour");
-
-                entity.HasIndex(e => e.Cost)
-                    .HasName("ind_tour_cost");
-
-                entity.HasIndex(e => e.Name)
-                    .HasName("ind_tour_name");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -208,5 +189,42 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        private string GetConnectionString()
+        {
+            if (File.Exists(CONFIG_FILE_ADDRESS))
+            {
+                if (!CheckConfigFile(CONFIG_FILE_ADDRESS))
+                {
+                    throw new Exception("Неверный формат файла конфигурации");
+                }
+                StringBuilder str = new StringBuilder();
+                using (StreamReader sr = new StreamReader(CONFIG_FILE_ADDRESS, Encoding.GetEncoding(1251)))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        str.Append(line);
+                    }
+                }
+                return str.ToString();
+            }
+            else
+            {
+                throw new Exception("Файл конфигурации не найден");
+            }
+        }
+        private bool CheckConfigFile(string fileAddress)
+        {
+            int count = 0;
+            using (StreamReader sr = new StreamReader(fileAddress))
+            {
+                while (sr.ReadLine() != null)
+                {
+                    count++;
+                }
+            }
+            return count == 5 ? true : false;
+        }
     }
 }
