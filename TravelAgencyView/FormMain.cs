@@ -11,10 +11,12 @@ namespace TravelAgencyView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly SaleLogic logicS;
-        public FormMain(SaleLogic logicS)
+        private readonly TransferLogic logicT;
+        public FormMain(SaleLogic logicS,TransferLogic transferLogic)
         {
             InitializeComponent();
             this.logicS = logicS;
+            this.logicT = transferLogic;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -117,6 +119,11 @@ namespace TravelAgencyView
         {
             var form = Container.Resolve<FormTours>();
             form.ShowDialog();
+        }
+
+        private void перенестиДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            logicT.TransferAll();
         }
     }
 }

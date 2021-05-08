@@ -228,7 +228,6 @@ namespace TravelAgencyDatabaseImplement.DatabaseContext
                         str.Append(line);
                     }
                 }
-                Console.WriteLine(str.ToString());
                 return str.ToString();
             }
             else

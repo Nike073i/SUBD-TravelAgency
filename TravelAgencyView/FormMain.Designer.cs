@@ -40,6 +40,7 @@ namespace TravelAgencyView
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
             this.buttonSalesForPeriod = new System.Windows.Forms.Button();
+            this.перенестиДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,8 @@ namespace TravelAgencyView
             this.клиентыToolStripMenuItem,
             this.турыToolStripMenuItem,
             this.отелиToolStripMenuItem,
-            this.страныToolStripMenuItem});
+            this.страныToolStripMenuItem,
+            this.перенестиДанныеToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(713, 24);
@@ -146,6 +148,13 @@ namespace TravelAgencyView
             this.buttonSalesForPeriod.UseVisualStyleBackColor = true;
             this.buttonSalesForPeriod.Click += new System.EventHandler(this.ButtonSalesForPeriod_Click);
             // 
+            // перенестиДанныеToolStripMenuItem
+            // 
+            this.перенестиДанныеToolStripMenuItem.Name = "перенестиДанныеToolStripMenuItem";
+            this.перенестиДанныеToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.перенестиДанныеToolStripMenuItem.Text = "Перенести данные";
+            this.перенестиДанныеToolStripMenuItem.Click += new System.EventHandler(this.перенестиДанныеToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +192,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridView dataGridViewSales;
         private System.Windows.Forms.Button buttonSalesForPeriod;
+        private System.Windows.Forms.ToolStripMenuItem перенестиДанныеToolStripMenuItem;
     }
 }
 

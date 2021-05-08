@@ -32,6 +32,7 @@ namespace TravelAgencyView
             currentContainer.RegisterType<HotelLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<SaleLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<TourLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<TransferLogic>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }
