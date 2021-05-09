@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using StackExchange.Redis;
 using System.Collections.Generic;
-using System.Linq;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.Interfaces;
 using TravelAgencyBusinessLogic.ViewModels;
@@ -15,11 +14,8 @@ namespace TravelAgencyDatabaseImplement.RedisImplements
             using (var client = ConnectionMultiplexer.Connect("localhost"))
             {
                 var db = client.GetDatabase();
-                var keys = client.GetServer("localhost", 6379).Keys(pattern: "Hotel_*");
-                foreach (var key in keys)
-                {
-                    db.KeyDelete(key);
-                }
+                var sales = db.SetMembers("Sale");
+                db.SetRemove("Sale", sales);
             }
         }
 
@@ -29,13 +25,20 @@ namespace TravelAgencyDatabaseImplement.RedisImplements
             {
                 return null;
             }
-            string result;
             using (var client = ConnectionMultiplexer.Connect("localhost"))
             {
                 var db = client.GetDatabase();
-                result = db.StringGet("Sale_" + model.Id.Value.ToString());
+                var sales = db.SetMembers("Sale");
+                foreach (var key in sales)
+                {
+                    var sale = JsonConvert.DeserializeObject<SaleDocumentViewModel>(key);
+                    if (sale.Id == model.Id)
+                    {
+                        return sale;
+                    }
+                }
             }
-            return CreateModel(result);
+            return null;
         }
 
         public List<SaleDocumentViewModel> GetFilteredList(SaleDocumentBindingModel model)
@@ -48,13 +51,10 @@ namespace TravelAgencyDatabaseImplement.RedisImplements
             using (var client = ConnectionMultiplexer.Connect("localhost"))
             {
                 var db = client.GetDatabase();
-                var keys = client.GetServer("localhost", 6379).Keys(pattern: "Sale_*");
-                var keysArr = keys.Select(key => (string)key).ToList();
-
-                foreach (var key in keysArr)
+                var sales = db.SetMembers("Sale");
+                foreach (var key in sales)
                 {
-                    var saleJson = db.StringGet(key);
-                    var sale = JsonConvert.DeserializeObject<SaleDocumentViewModel>(saleJson);
+                    var sale = JsonConvert.DeserializeObject<SaleDocumentViewModel>(key);
                     if (sale.ClientFIO == model.ClientFIO)
                     {
                         list.Add(sale);
@@ -70,12 +70,10 @@ namespace TravelAgencyDatabaseImplement.RedisImplements
             using (var client = ConnectionMultiplexer.Connect("localhost"))
             {
                 var db = client.GetDatabase();
-                var keys = client.GetServer("localhost", 6379).Keys(pattern: "Sale_*");
-                var keysArr = keys.Select(key => (string)key).ToList();
-                foreach (var key in keysArr)
+                var sales = db.SetMembers("Sale");
+                foreach (var key in sales)
                 {
-                    var json = db.StringGet(key);
-                    list.Add(CreateModel(json));
+                    list.Add(CreateModel(key));
                 }
             }
             return list;
@@ -90,7 +88,7 @@ namespace TravelAgencyDatabaseImplement.RedisImplements
             using (var client = ConnectionMultiplexer.Connect("localhost"))
             {
                 var db = client.GetDatabase();
-                db.StringSet("Sale_" + model.Id.Value.ToString(), JsonConvert.SerializeObject(model));
+                db.SetAdd("Sale", JsonConvert.SerializeObject(model));
             }
         }
 
