@@ -34,13 +34,15 @@ namespace TravelAgencyView
             this.турыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отелиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.страныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.перенестиДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonRef = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonUpd = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
             this.buttonSalesForPeriod = new System.Windows.Forms.Button();
-            this.перенестиДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отелидокументыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.продажидокументыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
             this.SuspendLayout();
@@ -52,10 +54,12 @@ namespace TravelAgencyView
             this.турыToolStripMenuItem,
             this.отелиToolStripMenuItem,
             this.страныToolStripMenuItem,
-            this.перенестиДанныеToolStripMenuItem});
+            this.перенестиДанныеToolStripMenuItem,
+            this.отелидокументыToolStripMenuItem,
+            this.продажидокументыToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(713, 24);
+            this.menuStrip.Size = new System.Drawing.Size(824, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -87,9 +91,16 @@ namespace TravelAgencyView
             this.страныToolStripMenuItem.Text = "Страны";
             this.страныToolStripMenuItem.Click += new System.EventHandler(this.страныToolStripMenuItem_Click);
             // 
+            // перенестиДанныеToolStripMenuItem
+            // 
+            this.перенестиДанныеToolStripMenuItem.Name = "перенестиДанныеToolStripMenuItem";
+            this.перенестиДанныеToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.перенестиДанныеToolStripMenuItem.Text = "Перенести данные";
+            this.перенестиДанныеToolStripMenuItem.Click += new System.EventHandler(this.перенестиДанныеToolStripMenuItem_Click);
+            // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(573, 169);
+            this.buttonRef.Location = new System.Drawing.Point(681, 169);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(116, 27);
             this.buttonRef.TabIndex = 13;
@@ -99,7 +110,7 @@ namespace TravelAgencyView
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(573, 121);
+            this.buttonDel.Location = new System.Drawing.Point(681, 121);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(116, 27);
             this.buttonDel.TabIndex = 12;
@@ -109,7 +120,7 @@ namespace TravelAgencyView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(573, 75);
+            this.buttonUpd.Location = new System.Drawing.Point(681, 75);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(116, 27);
             this.buttonUpd.TabIndex = 11;
@@ -119,7 +130,7 @@ namespace TravelAgencyView
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(573, 30);
+            this.buttonAdd.Location = new System.Drawing.Point(681, 30);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(116, 27);
             this.buttonAdd.TabIndex = 10;
@@ -135,12 +146,12 @@ namespace TravelAgencyView
             this.dataGridViewSales.Location = new System.Drawing.Point(12, 27);
             this.dataGridViewSales.Name = "dataGridViewSales";
             this.dataGridViewSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSales.Size = new System.Drawing.Size(538, 263);
+            this.dataGridViewSales.Size = new System.Drawing.Size(640, 263);
             this.dataGridViewSales.TabIndex = 9;
             // 
             // buttonSalesForPeriod
             // 
-            this.buttonSalesForPeriod.Location = new System.Drawing.Point(573, 213);
+            this.buttonSalesForPeriod.Location = new System.Drawing.Point(681, 213);
             this.buttonSalesForPeriod.Name = "buttonSalesForPeriod";
             this.buttonSalesForPeriod.Size = new System.Drawing.Size(116, 27);
             this.buttonSalesForPeriod.TabIndex = 14;
@@ -148,18 +159,25 @@ namespace TravelAgencyView
             this.buttonSalesForPeriod.UseVisualStyleBackColor = true;
             this.buttonSalesForPeriod.Click += new System.EventHandler(this.ButtonSalesForPeriod_Click);
             // 
-            // перенестиДанныеToolStripMenuItem
+            // отелидокументыToolStripMenuItem
             // 
-            this.перенестиДанныеToolStripMenuItem.Name = "перенестиДанныеToolStripMenuItem";
-            this.перенестиДанныеToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
-            this.перенестиДанныеToolStripMenuItem.Text = "Перенести данные";
-            this.перенестиДанныеToolStripMenuItem.Click += new System.EventHandler(this.перенестиДанныеToolStripMenuItem_Click);
+            this.отелидокументыToolStripMenuItem.Name = "отелидокументыToolStripMenuItem";
+            this.отелидокументыToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.отелидокументыToolStripMenuItem.Text = "Отели-документы";
+            this.отелидокументыToolStripMenuItem.Click += new System.EventHandler(this.отелидокументыToolStripMenuItem_Click);
+            // 
+            // продажидокументыToolStripMenuItem
+            // 
+            this.продажидокументыToolStripMenuItem.Name = "продажидокументыToolStripMenuItem";
+            this.продажидокументыToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.продажидокументыToolStripMenuItem.Text = "Продажи-документы";
+            this.продажидокументыToolStripMenuItem.Click += new System.EventHandler(this.продажидокументыToolStripMenuItem_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 302);
+            this.ClientSize = new System.Drawing.Size(824, 302);
             this.Controls.Add(this.buttonSalesForPeriod);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
@@ -193,6 +211,8 @@ namespace TravelAgencyView
         private System.Windows.Forms.DataGridView dataGridViewSales;
         private System.Windows.Forms.Button buttonSalesForPeriod;
         private System.Windows.Forms.ToolStripMenuItem перенестиДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отелидокументыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem продажидокументыToolStripMenuItem;
     }
 }
 

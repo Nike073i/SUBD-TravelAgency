@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TravelAgencyBusinessLogic.BindingModels;
 using TravelAgencyBusinessLogic.BusinessLogic;
+using TravelAgencyBusinessLogic.Interfaces;
 using Unity;
 
 namespace TravelAgencyView
@@ -12,11 +13,13 @@ namespace TravelAgencyView
         public new IUnityContainer Container { get; set; }
         private readonly SaleLogic logicS;
         private readonly TransferLogic logicT;
-        public FormMain(SaleLogic logicS,TransferLogic transferLogic)
+        private readonly IHotelDocumentStorageRedis hotelDocumentStorage;
+        public FormMain(SaleLogic logicS, TransferLogic transferLogic, IHotelDocumentStorageRedis hotelDocumentStorage)
         {
             InitializeComponent();
             this.logicS = logicS;
             this.logicT = transferLogic;
+            this.hotelDocumentStorage = hotelDocumentStorage;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -124,6 +127,18 @@ namespace TravelAgencyView
         private void перенестиДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             logicT.TransferAll();
+        }
+
+        private void отелидокументыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormHotelDocuments>();
+            form.ShowDialog();
+        }
+
+        private void продажидокументыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormSaleDocuments>();
+            form.ShowDialog();
         }
     }
 }
