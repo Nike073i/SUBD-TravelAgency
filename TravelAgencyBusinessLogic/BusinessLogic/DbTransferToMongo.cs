@@ -8,7 +8,7 @@ namespace TravelAgencyBusinessLogic.BusinessLogic
     public class DbTransferToMongo
     {
         static string connectionString = "mongodb://localhost:27017";
-        static string DatabaseString = "TraveAgency";
+        static string DatabaseString = "TravelAgency";
         static string SaleCollectionString = "Sale";
         static string HotelCollectionString = "Hotel";
 
